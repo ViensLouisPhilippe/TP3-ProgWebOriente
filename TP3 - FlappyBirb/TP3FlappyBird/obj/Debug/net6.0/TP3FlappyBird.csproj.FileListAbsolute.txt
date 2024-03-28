@@ -1,0 +1,8 @@
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.csproj.AssemblyReference.cache
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.AssemblyInfoInputs.cache
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.AssemblyInfo.cs
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.csproj.CoreCompileInputs.cache
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.RazorAssemblyInfo.cache
+C:\Users\2034421\Desktop\TP3-ProgWebOriente\TP3 - FlappyBirb\TP3FlappyBird\obj\Debug\net6.0\TP3FlappyBird.RazorAssemblyInfo.cs
