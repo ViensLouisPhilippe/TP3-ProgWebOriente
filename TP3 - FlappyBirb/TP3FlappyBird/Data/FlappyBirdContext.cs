@@ -9,8 +9,6 @@ namespace TP3FlappyBird.Data
         public FlappyBirdContext(DbContextOptions<FlappyBirdContext> options) 
             :base(options) { }
 
-
+        public DbSet<TP3FlappyBird.Models.Score> Score { get; set; } = default!;
     }
-
-    public DbSet<TP3FlappyBird.Models.Score> Score { get; set; } = default!;
 }
