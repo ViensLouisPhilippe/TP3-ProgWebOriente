@@ -115,7 +115,7 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateIssuer = true,
         ValidAudience = "https://localhost:4200",
-        ValidIssuer = "https://localhost:7093",
+        ValidIssuer = "https://localhost:7074",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Longue Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas"))
     };
 });

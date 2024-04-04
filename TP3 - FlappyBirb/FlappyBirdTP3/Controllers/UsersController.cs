@@ -14,11 +14,9 @@ namespace TP3FlappyBird.Controllers
     public class UsersController : ControllerBase
     {
         readonly UserManager<User> UserManager;
-        readonly IConfiguration Config;
 
-        public UsersController(IConfiguration config, UserManager<User> userManager)
+        public UsersController(UserManager<User> userManager)
         {
-            Config = config;
             UserManager = userManager;
         }
 
@@ -40,7 +38,7 @@ namespace TP3FlappyBird.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     new { Message = "La création de l'utilisateur a échoué." });
             }
-            return Ok();
+            return Ok(new { Message = "La création de l'utilisateur a réussi." });
         }
 
         [HttpPost]
@@ -60,7 +58,7 @@ namespace TP3FlappyBird.Controllers
                 SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
                     .GetBytes("Longue Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas"));
                 JwtSecurityToken token = new JwtSecurityToken(
-                    issuer: "https://localhost:7093",
+                    issuer: "https://localhost:7074",
                     audience: "https://localhost:4200",
                     claims: authClaims,
                     expires: DateTime.Now.AddMinutes(30),
