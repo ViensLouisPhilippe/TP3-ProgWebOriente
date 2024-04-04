@@ -14,10 +14,12 @@ namespace TP3FlappyBird.Controllers
     public class UsersController : ControllerBase
     {
         readonly UserManager<User> UserManager;
+        readonly IConfiguration Config;
 
-        public UsersController()
+        public UsersController(IConfiguration config, UserManager<User> userManager)
         {
-            
+            Config = config;
+            UserManager = userManager;
         }
 
         [HttpPost]
@@ -56,9 +58,9 @@ namespace TP3FlappyBird.Controllers
                 authClaims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
 
                 SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
-                    .GetBytes("Longye Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas"));
+                    .GetBytes("Longue Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas"));
                 JwtSecurityToken token = new JwtSecurityToken(
-                    issuer: "https://localhost:7128",
+                    issuer: "https://localhost:7093",
                     audience: "https://localhost:4200",
                     claims: authClaims,
                     expires: DateTime.Now.AddMinutes(30),
@@ -77,7 +79,6 @@ namespace TP3FlappyBird.Controllers
                     new { Message = "Le nom d'utilisateur ou le mot de passe est invalide." });
             }
 
-            return Ok();
         }
     }
 }

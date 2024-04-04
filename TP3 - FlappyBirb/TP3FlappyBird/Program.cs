@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore.Design;
 using System.Text;
 using TP3FlappyBird.Data;
 using TP3FlappyBird.Models;
@@ -9,11 +10,20 @@ using TP3FlappyBird.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<FlappyBirdContext>(options => 
 { 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FlappyBirdContext") ?? throw new InvalidOperationException("Connection string 'LaboSemaine8Context' not found."));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FlappyBirdContext") ?? throw new InvalidOperationException("Connection string 'FlappyBirdContext' not found."));
     options.UseLazyLoadingProxies();
 });
 
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<FlappyBirdContext>();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 5;
+});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -29,8 +39,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateIssuer = true,
         ValidAudience = "https://localhost:4200",
-        ValidIssuer = "https://localhost:7182",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Longye Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas!"))
+        ValidIssuer = "https://localhost:7093",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Longue Phrase sinon sa marche paaaaaaaaaaaaaaaaaaaaaaaaaaaaaas"))
     };
 });
 

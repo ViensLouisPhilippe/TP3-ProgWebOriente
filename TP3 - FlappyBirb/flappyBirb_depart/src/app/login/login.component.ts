@@ -1,5 +1,7 @@
+import { AppModule } from './../app.module';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from '../service/app.service';
 
 @Component({
   selector: 'app-login',
@@ -18,20 +20,20 @@ export class LoginComponent implements OnInit {
   loginUsername : string = "";
   loginPassword : string = "";
 
-  constructor(public route : Router) { }
+  constructor(public route : Router, public service : AppService) { }
 
   ngOnInit() {
   }
 
-  login(){
-
-
+  async login(): Promise<void>{
+    this.service.login(this.loginUsername, this.loginPassword);
+    
     // Redirection si la connexion a réussi :
     this.route.navigate(["/play"]);
   }
 
   register(){
-
+      this.service.register(this.registerUsername, this.registerEmail, this.registerPassword, this.registerPasswordConfirm);
   }
 
 }
