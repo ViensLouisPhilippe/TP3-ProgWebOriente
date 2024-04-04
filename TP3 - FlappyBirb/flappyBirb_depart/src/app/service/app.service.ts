@@ -31,8 +31,8 @@ constructor(public http: HttpClient) { }
         'Content-Type' : 'application/json', 'Authorization' : 'Bearer ' + token
       })
     };
-    let x = await lastValueFrom(this.http.get<Score[]>("eventuel ajouter le nom du lien", httpsOptions));
-    console.log(x);
+    //let x = await lastValueFrom(this.http.get<any>("eventuel ajouter le nom du lien", httpsOptions));
+    //console.log(x);
   }
 
 }

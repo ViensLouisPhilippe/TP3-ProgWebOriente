@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FlappyBirdTP3.props" />
+</Project>
