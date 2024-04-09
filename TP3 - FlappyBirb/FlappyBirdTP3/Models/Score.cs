@@ -12,7 +12,7 @@ namespace TP3FlappyBird.Models
 
         public DateTime? Date { get; set; }
 
-        public bool Visible { get; set; } = true;
+        public bool IsPublic { get; set; } = true;
 
         [JsonIgnore]
         public virtual User? User { get; set; }

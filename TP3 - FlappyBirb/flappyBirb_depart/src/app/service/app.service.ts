@@ -27,7 +27,7 @@ constructor(public http: HttpClient) { }
 
   async getMyScore() : Promise<Score[]>{
     
-    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/getPublicScores"));
+    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/GetMyScores"));
     console.log(x);
     return x;
   }
@@ -47,8 +47,14 @@ constructor(public http: HttpClient) { }
     let newScore = new Score(0, null, null, parsedTemps, parsedScore, true);
 
     let x = await lastValueFrom(this.http.post<Score>("https://localhost:7074/api/scores/postscore", newScore));
+    console.log("allo");
     console.log(x);
 
 
+  }
+  async changeVisible(score : Score){
+    let x = await lastValueFrom(this.http.put<Score>("https://localhost:7074/api/scores/ChangeScoreVisibility/" + score.id, score.id));
+    console.log(x);
+    return x;
   }
 }

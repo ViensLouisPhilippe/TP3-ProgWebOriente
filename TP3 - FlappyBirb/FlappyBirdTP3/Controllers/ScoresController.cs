@@ -22,16 +22,25 @@ namespace TP3FlappyBird.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Score>>> GetPublicScores()
+        public async Task<ActionResult<IEnumerable<ScoreDTO>>> GetPublicScores()
         {
             if (_score_service.IsScoreSetEmpty())
             {
                 return NotFound();
             }
-            return Ok(await _score_service.ScoresToList());
+            IEnumerable<Score>? scores = await _score_service.ScoresToList();
+            return Ok(scores.Where(c => c.User != null).Select(c => new ScoreDTO
+            {
+                Id = c.Id,
+                TimeInSeconds = c.TimeInSeconds,
+                Date = c.Date,
+                Pseudo = c.User!.UserName,
+                ScoreValue = c.ScoreValue,
+                IsPublic = c.IsPublic
+            }));
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ScoreDTO>>> GetMyScores()
+        public async Task<ActionResult<IEnumerable<Score>>> GetMyScores()
         {
             if(_score_service.IsScoreSetEmpty())
             {
@@ -40,28 +49,21 @@ namespace TP3FlappyBird.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             User? user = await UserManager.FindByIdAsync(userId);
             if(user != null)
-            {
-                IEnumerable<Score> scores = user.Scores.ToList();
-                return Ok(scores.Where(c => c.User != null).Select(c => new ScoreDTO { 
-                    Id = c.Id,
-                    TimeInSeconds = c.TimeInSeconds,
-                    Date = c.Date,
-                    Pseudo = c.User!.UserName,
-                    ScoreValue = c.ScoreValue,
-                    Visible = c.Visible
-                }));
+            {                
+                return Ok(user.Scores);
             }
             return StatusCode(StatusCodes.Status400BadRequest, new { Message = "utilisateur non trouvé" });
         }
 
         [HttpPut]
+        [Route("{id}")]
         public async Task<ActionResult> ChangeScoreVisibility(int id)
         {
             Score score = await _score_service.FindByIdScore(id);
             if (score != null)
             {
                 await _score_service.ChangeVisibility(score);
-                return Ok();
+                return Ok(new { Message = "Le changement de la visibilité du score a fonctionner" });
             }
             return NotFound();
         }
@@ -82,8 +84,8 @@ namespace TP3FlappyBird.Controllers
                 score.Date = DateTime.Now;
                 user.Scores.Add(score);
 
-                _score_service.CreatePost(score);
-                return Ok(score);
+                Score? newScore = await _score_service.CreatePost(score);
+                return Ok(newScore);
             }
 
             return StatusCode(StatusCodes.Status400BadRequest, new { Message = "utilisateur non trouvé" });
