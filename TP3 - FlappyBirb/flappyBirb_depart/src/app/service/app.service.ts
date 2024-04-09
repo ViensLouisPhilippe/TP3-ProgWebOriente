@@ -26,42 +26,27 @@ constructor(public http: HttpClient) { }
   }
 
   async getMyScore() : Promise<Score[]>{
-    let token = localStorage.getItem("token");
-    let httpsOptions = {
-      headers: new HttpHeaders({
-        'Content-Type' : 'application/json', 'Authorization' : 'Bearer ' + token
-      })
-    };
-    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/getPublicScores", httpsOptions));
+    
+    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/getPublicScores"));
     console.log(x);
     return x;
   }
 
   async getScores() : Promise<Score[]>{
-    let token = localStorage.getItem("token");
-    let httpsOptions = {
-      headers: new HttpHeaders({
-        'Content-Type' : 'application/json', 'Authorization' : 'Bearer ' + token
-      })
-    };
-    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/getPublicScores", httpsOptions));
+    
+    let x = await lastValueFrom(this.http.get<Score[]>("https://localhost:7074/api/scores/getPublicScores"));
     console.log(x);
     return x;
   }
 
   async postScore(score : string, temps: string) : Promise<void>{
-    let token = localStorage.getItem("token");
-    let httpsOptions = {
-      headers: new HttpHeaders({
-        'Content-Type' : 'application/json', 'Authorization' : 'Bearer ' + token
-      })
-    };
+    
     let parsedTemps = JSON.parse(temps);
     let parsedScore = JSON.parse(score);
 
     let newScore = new Score(0, null, null, parsedTemps, parsedScore, true);
 
-    let x = await lastValueFrom(this.http.post<Score>("https://localhost:7074/api/scores/postscore", newScore, httpsOptions));
+    let x = await lastValueFrom(this.http.post<Score>("https://localhost:7074/api/scores/postscore", newScore));
     console.log(x);
 
 

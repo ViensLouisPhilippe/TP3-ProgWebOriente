@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PalmWxNXt0hsy9ZWTX20W1i1UOiT4c8X/a1VbDoJIAscICyhaV+zdnzSBKp1g7+O0/AZN301zEfCs3LJBX/Z5Q==",
+  "dgSpecHash": "FFNKF5KVpeoQiqNWO5EUxCjC7mTgQUcaNC0vWxT2DJmvCBbp9T+abvtuOsc52tU3vdzenFC+ViEC3TvNaMh48g==",
   "success": true,
   "projectFilePath": "C:\\Users\\2034421\\Desktop\\TP3-ProgWebOriente\\TP3 - FlappyBirb\\FlappyBirdTP3\\FlappyBirdTP3.csproj",
   "expectedPackageFiles": [
@@ -142,10 +142,10 @@
     "C:\\Users\\2034421\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\2034421\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\2034421\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.28\\microsoft.netcore.app.host.win-x64.6.0.28.nupkg.sha512"
+    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\2034421\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
   ],
   "logs": []
 }

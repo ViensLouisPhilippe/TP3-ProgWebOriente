@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using TP3FlappyBird.Models;
 
-namespace TP3FlappyBird.Models
+namespace FlappyBirdTP3.Models
 {
-    public class Score
+    public class ScoreDTO
     {
         public int Id { get; set; }
 
@@ -14,7 +15,6 @@ namespace TP3FlappyBird.Models
 
         public bool Visible { get; set; } = true;
 
-        [JsonIgnore]
-        public virtual User? User { get; set; }
+        public string Pseudo { get; set; } = null!;
     }
 }
