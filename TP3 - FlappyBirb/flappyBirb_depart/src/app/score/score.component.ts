@@ -17,7 +17,7 @@ export class ScoreComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.userIsConnected = sessionStorage.getItem("token") != null;
+    this.userIsConnected = localStorage.getItem("token") != null;
     if(this.userIsConnected)
     {
       this.myScores = await this.service.getMyScore();
@@ -26,6 +26,9 @@ export class ScoreComponent implements OnInit {
   }
 
   async changeScoreVisibility(score : Score){
+    
+      await this.service.changeVisible(score);
+      score.isPublic = !score.isPublic;
 
 
   }

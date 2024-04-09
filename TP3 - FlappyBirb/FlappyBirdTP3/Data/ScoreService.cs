@@ -13,11 +13,12 @@ namespace TP3FlappyBird.Data
         {
             _context = context;
         }
-        public async void CreatePost(Score score)
+        public async Task<Score?> CreatePost(Score score)
         {
-            if(IsScoreSetEmpty()) return;
+            if(IsScoreSetEmpty()) return null;
             _context.Score.Add(score);
             await _context.SaveChangesAsync();
+            return score;
         }
 
         public bool IsScoreSetEmpty()
@@ -27,7 +28,7 @@ namespace TP3FlappyBird.Data
         public async Task ChangeVisibility(Score score)
         {
             if(IsScoreSetEmpty()) return;
-            score.Visible = !score.Visible;
+            score.IsPublic = !score.IsPublic;
             await _context.SaveChangesAsync();
         }
         public async Task<Score> FindByIdScore(int id)
@@ -40,7 +41,7 @@ namespace TP3FlappyBird.Data
             if (IsScoreSetEmpty()) return null;
             return await _context.Score.ToListAsync();
         }
-        public async Task<User> GetUserAsync(int id)
+        public async Task<User?> GetUserAsync(string id)
         {
             return await _context.Users.FindAsync(id);
         }

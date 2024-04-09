@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP3FlappyBird.Data;
 
@@ -11,9 +12,10 @@ using TP3FlappyBird.Data;
 namespace FlappyBirdTP3.Migrations
 {
     [DbContext(typeof(FlappyBirdContext))]
-    partial class FlappyBirdContextModelSnapshot : ModelSnapshot
+    [Migration("20240409183011_Migrations_3")]
+    partial class Migrations_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,9 +168,6 @@ namespace FlappyBirdTP3.Migrations
                     b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsPublic")
-                        .HasColumnType("bit");
-
                     b.Property<int>("ScoreValue")
                         .HasColumnType("int");
 
@@ -177,6 +176,9 @@ namespace FlappyBirdTP3.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

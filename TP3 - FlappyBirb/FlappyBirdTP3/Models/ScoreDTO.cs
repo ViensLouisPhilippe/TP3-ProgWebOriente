@@ -13,7 +13,7 @@ namespace FlappyBirdTP3.Models
 
         public DateTime? Date { get; set; }
 
-        public bool Visible { get; set; } = true;
+        public bool IsPublic { get; set; } = true;
 
         public string Pseudo { get; set; } = null!;
     }
